@@ -1,5 +1,6 @@
-import React, { Component } from 'react'; 
-import { Button } from 'semantic-ui-react';
+import React, { Component, Fragment } from 'react'; 
+import { Button, Input } from 'semantic-ui-react';
+import "../App.css";
 
 class SnackForm extends Component {
     state = {
@@ -24,11 +25,16 @@ class SnackForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <input type="text" value={this.state.name} name="name" onChange={this.handleChange} placeholder="Snack Name?" style={{margin: "50px"}}/>
-                <input type="text" value={this.state.img_src} name="img_src" onChange={this.handleChange} placeholder="Snack Image?" style={{ margin: "50px" }} />
-                <Button inverted color="blue">Add Snack</Button>
-            </form>
+            <Fragment>
+                <h2>Add a Snack</h2>
+                <form onSubmit={this.handleSubmit} id="snack-form">
+                    <Input focus placeholder="Snack Name?" type="text" value={this.state.name} name="name" onChange={this.handleChange} style={{margin: "10px 0px"}} />
+                    <br />
+                    <Input focus placeholder="Snack Pic?" type="text" value={this.state.img_src} name="img_src" onChange={this.handleChange} style={{margin: "10px 0px"}} />
+                    <br />
+                    <Button inverted color="red" style={{margin: "15px 0px"}}>Add Snack</Button>
+                </form>
+            </Fragment>
         )
     }
 }
